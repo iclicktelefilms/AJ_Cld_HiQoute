@@ -1,0 +1,157 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* App Background: #F5F6F8 */
+    --background: 220 14% 96%; 
+    /* Text primary: #111111 */
+    --foreground: 0 0% 7%;
+    
+    /* Cards & Header: #FFFFFF */
+    --card: 0 0% 100%; 
+    --card-foreground: 0 0% 7%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    
+    /* Primary: Red #E53935 */
+    --primary: 2 76% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary / Muted */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 96%;
+    /* Text secondary: #666666 */
+    --muted-foreground: 0 0% 40%;
+    
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 7%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Borders: #E0E0E0 */
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    
+    --ring: 2 76% 55%;
+    --radius: 0.75rem; /* 12px base radius */
+
+    /* Auth Hero & Feature Slider Tokens */
+    --hero-bg: 220 14% 96%;
+    --hero-glow: 2 76% 55%;
+    --feature-card-bg: 0 0% 100%;
+    --feature-icon-bg: 2 76% 96%;
+
+    /* Typography Tokens - Mobile First */
+    --text-page-title: 1.375rem; /* 22px */
+    --text-section-title: 1.125rem; /* 18px */
+    --text-body: 0.875rem; /* 14px */
+    --text-small: 0.75rem; /* 12px */
+    
+    /* Spacing Tokens */
+    --spacing-sm: 0.5rem; /* 8px */
+    --spacing-md: 0.75rem; /* 12px */
+    --spacing-lg: 1rem; /* 16px */
+    --spacing-section: 1.5rem; /* 24px */
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 2 76% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 2 76% 55%;
+
+    --hero-bg: 0 0% 5%;
+    --hero-glow: 2 76% 55%;
+    --feature-card-bg: 0 0% 9%;
+    --feature-icon-bg: 2 76% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-family: 'Satoshi', sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground text-[14px] font-normal leading-relaxed;
+  }
+  
+  h1 { @apply text-[22px] font-bold text-balance tracking-tight; letter-spacing: -0.02em; }
+  h2 { @apply text-[20px] font-bold text-balance tracking-tight; letter-spacing: -0.02em; }
+  h3 { @apply text-[18px] font-semibold text-balance leading-snug; }
+  h4 { @apply text-[16px] font-semibold text-balance leading-snug; }
+  h5 { @apply text-[14px] font-semibold text-balance; }
+  h6 { @apply text-[12px] font-semibold text-balance; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground h-[48px] md:h-[52px] px-6 py-3 w-full rounded-[12px] md:rounded-[16px] text-[16px] font-bold hover:bg-primary/90 transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground h-[48px] md:h-[52px] px-6 py-3 w-full rounded-[12px] md:rounded-[16px] text-[16px] font-bold hover:bg-secondary/80 transition-all active:scale-[0.98] flex items-center justify-center gap-2;
+  }
+  .btn-outline {
+    @apply border border-border bg-transparent text-foreground h-[48px] md:h-[52px] px-6 py-3 w-full rounded-[12px] md:rounded-[16px] text-[16px] font-bold hover:bg-muted transition-all active:scale-[0.98] flex items-center justify-center gap-2;
+  }
+  .input-field {
+    @apply w-full bg-[#F5F6F8] text-foreground border border-transparent rounded-[12px] h-[48px] px-4 py-2 text-[14px] outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-[#999999];
+  }
+  .auth-input {
+    @apply w-full bg-[#F5F6F8] text-foreground border border-transparent rounded-[12px] h-[48px] px-4 py-2 text-[14px] outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-[#999999];
+  }
+  
+  .card-base {
+    @apply bg-card border border-border rounded-[16px] p-[16px] shadow-sm overflow-hidden;
+  }
+  .report-card {
+    @apply bg-card border border-border rounded-[16px] p-[16px] shadow-sm hover:shadow-md transition-all flex flex-col justify-between;
+  }
+  
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  [role="dialog"], [data-radix-popper-content-wrapper] {
+    @apply bg-card shadow-lg z-50 border border-border rounded-[16px];
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm;
+  }
+  .modal-content {
+    @apply bg-card rounded-[16px] shadow-lg w-full max-w-md p-6 mx-4 flex flex-col items-center text-center border border-border;
+  }
+
+  .auth-hero-container {
+    @apply relative w-full overflow-hidden bg-[hsl(var(--hero-bg))] pt-8 pb-12 md:pt-10 md:pb-16 flex flex-col items-center justify-center;
+  }
+  .auth-hero-glow {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-[hsl(var(--hero-glow))/0.1] blur-[80px] rounded-full pointer-events-none;
+  }
+}

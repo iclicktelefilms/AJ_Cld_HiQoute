@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# PocketBase binary (too large for git)
+apps/pocketbase/pocketbase
+
+# PocketBase runtime files
+apps/pocketbase/pb_data/*.db-shm
+apps/pocketbase/pb_data/*.db-wal
+
+# Build output
+dist/
+
+# Logs
+*.log
