@@ -298,7 +298,8 @@ export default defineConfig({
 		port: 3000,
 		cors: true,
 		headers: {
-			'Cross-Origin-Embedder-Policy': 'credentialless',
+			'Cross-Origin-Embedder-Policy': 'unsafe-none',
+			'X-Frame-Options': 'ALLOWALL',
 		},
 		allowedHosts: true,
 		proxy: {
